@@ -1,6 +1,27 @@
-# This file was automatically generated for projects
-# without default 'CMakeLists.txt' file.
+idf_component_register(
+    SRCS
+        "main.cpp"
+        "UI/greeting.cpp"
+        "Board/board_i2c.c"
+        "EXIO/TCA9554PWR.c"
+        "LCD_Driver/ST77916.c"
+        "LCD_Driver/esp_lcd_st77916/esp_lcd_st77916.c"
 
-FILE(GLOB_RECURSE app_sources ${CMAKE_SOURCE_DIR}/src/*.*)
-
-idf_component_register(SRCS ${app_sources})
+    INCLUDE_DIRS
+        "."
+        "Board"
+        "EXIO"
+        "LCD_Driver"
+        "LCD_Driver/esp_lcd_st77916"
+    REQUIRES
+        esp_driver_i2c
+        esp_driver_spi
+        esp_driver_gpio
+        esp_driver_ledc
+        esp_lcd
+        esp_timer
+        esp_psram
+        freertos
+        heap
+        log
+)

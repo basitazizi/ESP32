@@ -1,1 +1,4 @@
 .pio/
+.local-backup/
+managed_components/
+sdkconfig.*.old
